@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">NumberGuesser</string>
+    <string name="main_prompt">Try to guess the number!</string>
+    <string name="helper_text">Try to guess a random number between 1 and 100. You\'ll have 5 tries</string>
+    <string name="user_input_hint">Enter your number here</string>
+    <string name="enter_button_text">Try this number!</string>
+</resources>
