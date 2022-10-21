@@ -16,11 +16,15 @@ public class GuessHandler {
     private static final Range<Integer> ALLOWED_RAN = new Range<Integer>(0, 100);
 
     public GuessHandler(MainActivity mainActivity) {
+        this.mainActivity = mainActivity;
+        initAttributes();
+    }
+
+    public void initAttributes() {
         // generate random number
         numberToGuess = (int) (Math.random() * 100);
         triesLeft = START_TRIES;
-
-        this.mainActivity = mainActivity;
+        updateTries();
     }
 
     public void onUserGuess(String guess) {
@@ -40,6 +44,7 @@ public class GuessHandler {
         } else {
             mainActivity.showMessage("Too low!");
         }
+        --triesLeft;
         updateTries();
     }
 
@@ -54,8 +59,8 @@ public class GuessHandler {
     }
 
     private void updateTries() {
-        mainActivity.updateTriesLeft(triesLeft--);
-        if (triesLeft <- 0) {
+        mainActivity.updateTriesLeft(triesLeft);
+        if (triesLeft <= 0) {
             mainActivity.setGameState(GameState.LOST);
         }
     }

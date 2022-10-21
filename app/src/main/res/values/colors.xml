@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="main_activity_bg">#FFF9C4</color>
+    <color name="lost_state_bg">#FFDADA</color>
+    <color name="win_state_bg">#E4FFD5</color>
 </resources>
