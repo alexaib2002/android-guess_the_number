@@ -9,4 +9,7 @@
     <string name="retry_button_text">↻</string>
     <string name="lost_emoji">😓</string>
     <string name="win_emoji">😎</string>
+    <string name="high_text_message">Too high!</string>
+    <string name="low_text_message">Too low!</string>
+    <string name="invalid_text_message">Number must be between 0 and 100!</string>
 </resources>

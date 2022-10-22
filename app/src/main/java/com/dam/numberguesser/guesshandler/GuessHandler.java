@@ -3,17 +3,20 @@ package com.dam.numberguesser.guesshandler;
 import android.util.Range;
 
 import com.dam.numberguesser.MainActivity;
+import com.dam.numberguesser.R;
 
 public class GuessHandler {
 
     public static final int START_TRIES = 5;
+    private static final int MIN_RAN_NUM = 0;
+    private static final int MAX_RAN_NUM = 100;
 
     private final MainActivity mainActivity;
 
     private int numberToGuess;
     private int triesLeft;
 
-    private static final Range<Integer> ALLOWED_RAN = new Range<Integer>(0, 100);
+    private static final Range<Integer> ALLOWED_RAN = new Range<Integer>(MIN_RAN_NUM, MAX_RAN_NUM);
 
     public GuessHandler(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
@@ -28,21 +31,19 @@ public class GuessHandler {
     }
 
     public void onUserGuess(String guess) {
-        System.out.printf("User tries %s\n", guess);
         int guessInt = validateInputNum(guess);
 
         if (!ALLOWED_RAN.contains(guessInt)) { return; }
 
         if (guessInt == numberToGuess) {
-            mainActivity.showMessage("You got it!");
             mainActivity.setGameState(GameState.WIN);
             return;
         }
 
         if (guessInt > numberToGuess) {
-            mainActivity.showMessage("Too high!");
+            mainActivity.showMessage(R.string.high_text_message);
         } else {
-            mainActivity.showMessage("Too low!");
+            mainActivity.showMessage(R.string.low_text_message);
         }
         --triesLeft;
         updateTries();
@@ -53,7 +54,7 @@ public class GuessHandler {
         try {
             num = Integer.parseInt(strNum);
         } catch (NumberFormatException e) {
-            mainActivity.showMessage("Number must be between 0 and 100!");
+            mainActivity.showMessage(R.string.invalid_text_message);
         }
         return num;
     }

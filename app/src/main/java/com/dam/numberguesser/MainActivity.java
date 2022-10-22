@@ -4,7 +4,6 @@ import androidx.annotation.ColorRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -84,6 +83,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void showMessage(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    public void showMessage(int resourceId) {
+        showMessage(getString(resourceId));
     }
 
     public void updateTriesLeft(int i) {
